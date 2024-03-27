@@ -1,16 +1,19 @@
 import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer';
+import { useContext } from 'react';
+import { AppContext } from '~/contexts/app-context';
 
 interface Props {
     children?: React.ReactNode
 }
 
 function MainLayout({ children }: Props) {
+    const { reset } = useContext(AppContext)
     const navigate = useNavigate();
 
     const handeSubmitLogout = () => {
+        reset();
         navigate('/login');
-        localStorage.clear()
     }
 
     return (

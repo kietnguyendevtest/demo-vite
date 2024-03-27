@@ -1,8 +1,10 @@
 export interface SuccessResponse<Data> {
+  Success: boolean
   Message: string
-  Result: Data
+  Result?: Data
 }
 export interface ErrorResponse<Data> {
+  Success?: boolean
   Message: string
   Result?: Data
 }
